@@ -51,7 +51,7 @@ const features = [
     icon: Compass,
     title: 'KI-Fangindex',
     eyebrow: 'Fangplanung',
-    desc: 'Unser Algorithmus berechnet aus 5 Faktoren — Wetter, Tageszeit, Mondphase, Solunar & Wasserstand — wann und wo du am besten fängst.',
+    desc: 'Fünf Faktoren zeigen dir auf einen Blick, wann und wo deine Chancen am besten stehen.',
     gradient: 'from-biss-primary/20 to-biss-water/20',
     iconColor: 'text-biss-water',
   },
@@ -59,7 +59,7 @@ const features = [
     icon: WifiOff,
     title: 'Offline-Modus',
     eyebrow: 'Am Wasser',
-    desc: 'Karte, Spots, Fangindex und Fangbuch funktionieren komplett ohne Internet. Deine Fänge werden automatisch synchronisiert.',
+    desc: 'Karte, Spots, Fangindex und Fangbuch laufen auch ohne Empfang zuverlässig weiter.',
     gradient: 'from-biss-accent/20 to-biss-primary/20',
     iconColor: 'text-biss-accent',
   },
@@ -67,7 +67,7 @@ const features = [
     icon: BookOpen,
     title: 'Fang-Tagebuch',
     eyebrow: 'Dokumentation',
-    desc: 'Dokumentiere jeden Fang mit Foto, Spot, Fischart und Bedingungen. Dein persönliches Angeltagebuch — immer dabei.',
+    desc: 'Halte Fänge, Spots und Bedingungen fest und erkenne mit der Zeit klare Muster.',
     gradient: 'from-biss-primary/20 to-biss-water/20',
     iconColor: 'text-biss-primary',
   },
@@ -75,7 +75,7 @@ const features = [
     icon: MapPin,
     title: '200+ Gewässer',
     eyebrow: 'Revierwissen',
-    desc: 'Echte Gewässerdaten aus OpenStreetMap für Norddeutschland. Mit Live-Pegelständen vom PEGELONLINE.',
+    desc: 'Gewässerdaten für Norddeutschland plus Live-Pegelstände für eine bessere Einordnung.',
     gradient: 'from-biss-water/20 to-biss-primary/20',
     iconColor: 'text-biss-water',
   },
@@ -83,7 +83,7 @@ const features = [
     icon: Shield,
     title: 'Schonzeiten & Regeln',
     eyebrow: 'Regelsicherheit',
-    desc: 'Schonzeiten, Mindestmaße und lokale Regeln für 7+ Fischarten — direkt in der App. Nie wieder unsicher am Wasser.',
+    desc: 'Schonzeiten, Mindestmaße und wichtige Regeln direkt in der App, wenn du sie brauchst.',
     gradient: 'from-biss-accent/20 to-biss-primary/20',
     iconColor: 'text-biss-accent',
   },
@@ -91,7 +91,7 @@ const features = [
     icon: Trophy,
     title: 'Gamification',
     eyebrow: 'Motivation',
-    desc: '18 Achievements in 4 Kategorien, Streak-System und Leaderboard. Angeln wird zum Abenteuer.',
+    desc: 'Achievements, Streaks und Fortschritt sorgen für Motivation, ohne vom Wesentlichen abzulenken.',
     gradient: 'from-biss-accent/20 to-biss-water/20',
     iconColor: 'text-biss-accent',
   },
@@ -388,20 +388,20 @@ function App() {
             featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.92fr_1.08fr] gap-8 xl:gap-10 items-start">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.72fr_1.28fr] gap-8 xl:gap-10 items-start">
             <div className="lg:sticky lg:top-28">
               <span className="text-xs uppercase tracking-[0.3em] text-biss-sand mb-4 block">
                 Features
               </span>
-              <h2 className="text-3xl md:text-[3.35rem] font-bold leading-[0.96] mb-6 text-stone-50 max-w-[12ch]">
+              <h2 className="text-3xl md:text-[3.15rem] font-bold leading-[0.96] mb-6 text-stone-50 max-w-[10ch]">
                 Am Wasser zählen Klarheit und Verlässlichkeit
               </h2>
-              <p className="text-stone-300 text-[1.05rem] leading-relaxed max-w-lg">
+              <p className="text-stone-300 text-[1.02rem] leading-relaxed max-w-md">
                 BISS ist keine hochglänzende Tech-Spielerei. Die App ist dafür gemacht,
                 dass du draußen schneller zu guten Entscheidungen kommst — mit Daten,
                 die dir wirklich etwas bringen.
               </p>
-              <div className="mt-8 field-chip rounded-2xl p-5 max-w-md">
+              <div className="mt-8 field-chip rounded-2xl p-5 max-w-sm">
                 <p className="text-sm font-semibold text-stone-100 mb-2">Was du davon hast</p>
                 <p className="text-sm text-stone-300 leading-relaxed">
                   Weniger Suchen, weniger Rätselraten, mehr Zeit am Wasser und mehr Übersicht,
@@ -410,22 +410,28 @@ function App() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 auto-rows-fr">
+            <div className="grid md:grid-cols-2 gap-4 xl:gap-5 auto-rows-fr items-stretch">
               {features.map((feature, i) => (
                 <div
                   key={i}
-                  className="group relative weathered-card rounded-[1.75rem] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                  className="group relative weathered-card rounded-[1.65rem] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 min-h-[210px] h-full flex flex-col"
                 >
-                  <span className="text-[11px] uppercase tracking-[0.24em] text-biss-sand/70 block mb-4">
-                    {feature.eyebrow}
-                  </span>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br ${feature.gradient} border border-biss-border/60 group-hover:scale-105 transition-transform duration-300`}
-                  >
-                    <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-biss-sand/70 block pt-1">
+                      {feature.eyebrow}
+                    </span>
+                    <div
+                      className={`w-12 h-12 rounded-[1rem] flex items-center justify-center shrink-0 bg-gradient-to-br ${feature.gradient} border border-biss-border/60 group-hover:scale-105 transition-transform duration-300`}
+                    >
+                      <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                    </div>
                   </div>
-                  <h3 className="text-[1.75rem] leading-[1.05] font-semibold mb-3 text-stone-50">{feature.title}</h3>
-                  <p className="text-stone-300 text-[0.95rem] leading-relaxed max-w-[30ch]">{feature.desc}</p>
+                  <h3 className="text-[1.26rem] md:text-[1.38rem] leading-[1.1] font-semibold mb-3 text-stone-50 min-h-[3rem] max-w-[14ch]">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-auto text-stone-300 text-[0.92rem] leading-relaxed max-w-[31ch] min-h-[4.5rem]">
+                    {feature.desc}
+                  </p>
                 </div>
               ))}
             </div>
