@@ -50,6 +50,7 @@ const features = [
   {
     icon: Compass,
     title: 'KI-Fangindex',
+    eyebrow: 'Fangplanung',
     desc: 'Unser Algorithmus berechnet aus 5 Faktoren — Wetter, Tageszeit, Mondphase, Solunar & Wasserstand — wann und wo du am besten fängst.',
     gradient: 'from-biss-primary/20 to-biss-water/20',
     iconColor: 'text-biss-water',
@@ -57,6 +58,7 @@ const features = [
   {
     icon: WifiOff,
     title: 'Offline-Modus',
+    eyebrow: 'Am Wasser',
     desc: 'Karte, Spots, Fangindex und Fangbuch funktionieren komplett ohne Internet. Deine Fänge werden automatisch synchronisiert.',
     gradient: 'from-biss-accent/20 to-biss-primary/20',
     iconColor: 'text-biss-accent',
@@ -64,6 +66,7 @@ const features = [
   {
     icon: BookOpen,
     title: 'Fang-Tagebuch',
+    eyebrow: 'Dokumentation',
     desc: 'Dokumentiere jeden Fang mit Foto, Spot, Fischart und Bedingungen. Dein persönliches Angeltagebuch — immer dabei.',
     gradient: 'from-biss-primary/20 to-biss-water/20',
     iconColor: 'text-biss-primary',
@@ -71,6 +74,7 @@ const features = [
   {
     icon: MapPin,
     title: '200+ Gewässer',
+    eyebrow: 'Revierwissen',
     desc: 'Echte Gewässerdaten aus OpenStreetMap für Norddeutschland. Mit Live-Pegelständen vom PEGELONLINE.',
     gradient: 'from-biss-water/20 to-biss-primary/20',
     iconColor: 'text-biss-water',
@@ -78,6 +82,7 @@ const features = [
   {
     icon: Shield,
     title: 'Schonzeiten & Regeln',
+    eyebrow: 'Regelsicherheit',
     desc: 'Schonzeiten, Mindestmaße und lokale Regeln für 7+ Fischarten — direkt in der App. Nie wieder unsicher am Wasser.',
     gradient: 'from-biss-accent/20 to-biss-primary/20',
     iconColor: 'text-biss-accent',
@@ -85,6 +90,7 @@ const features = [
   {
     icon: Trophy,
     title: 'Gamification',
+    eyebrow: 'Motivation',
     desc: '18 Achievements in 4 Kategorien, Streak-System und Leaderboard. Angeln wird zum Abenteuer.',
     gradient: 'from-biss-accent/20 to-biss-water/20',
     iconColor: 'text-biss-accent',
@@ -382,15 +388,15 @@ function App() {
             featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.86fr_1.14fr] gap-10 items-start">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.92fr_1.08fr] gap-8 xl:gap-10 items-start">
             <div className="lg:sticky lg:top-28">
               <span className="text-xs uppercase tracking-[0.3em] text-biss-sand mb-4 block">
                 Features
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-50">
+              <h2 className="text-3xl md:text-[3.35rem] font-bold leading-[0.96] mb-6 text-stone-50 max-w-[12ch]">
                 Am Wasser zählen Klarheit und Verlässlichkeit
               </h2>
-              <p className="text-stone-300 text-lg leading-relaxed max-w-xl">
+              <p className="text-stone-300 text-[1.05rem] leading-relaxed max-w-lg">
                 BISS ist keine hochglänzende Tech-Spielerei. Die App ist dafür gemacht,
                 dass du draußen schneller zu guten Entscheidungen kommst — mit Daten,
                 die dir wirklich etwas bringen.
@@ -404,22 +410,22 @@ function App() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-2 gap-5 auto-rows-fr">
               {features.map((feature, i) => (
                 <div
                   key={i}
-                  className="group relative weathered-card rounded-[1.75rem] p-7 transition-all duration-300 hover:-translate-y-1"
+                  className="group relative weathered-card rounded-[1.75rem] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
                 >
-                  <span className="text-[11px] uppercase tracking-[0.24em] text-biss-sand/70 block mb-5">
-                    Werkzeug 0{i + 1}
+                  <span className="text-[11px] uppercase tracking-[0.24em] text-biss-sand/70 block mb-4">
+                    {feature.eyebrow}
                   </span>
                   <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${feature.gradient} border border-biss-border/60 group-hover:scale-105 transition-transform duration-300`}
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br ${feature.gradient} border border-biss-border/60 group-hover:scale-105 transition-transform duration-300`}
                   >
                     <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-stone-50">{feature.title}</h3>
-                  <p className="text-stone-300 text-sm leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-[1.75rem] leading-[1.05] font-semibold mb-3 text-stone-50">{feature.title}</h3>
+                  <p className="text-stone-300 text-[0.95rem] leading-relaxed max-w-[30ch]">{feature.desc}</p>
                 </div>
               ))}
             </div>
@@ -434,38 +440,38 @@ function App() {
             uspVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.82fr_1.18fr] gap-10 items-start">
-            <div className="outdoor-panel rounded-[2rem] p-8">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.92fr_1.08fr] gap-8 xl:gap-10 items-start">
+            <div className="outdoor-panel rounded-[2rem] p-7 md:p-8">
               <span className="text-xs uppercase tracking-[0.3em] text-biss-sand mb-4 block">
                 Warum BISS?
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-50">
+              <h2 className="text-3xl md:text-[3.1rem] leading-[0.97] font-bold mb-6 text-stone-50 max-w-[11ch]">
                 Entwickelt für Angler,
                 nicht für Pitchdecks
               </h2>
-              <p className="text-stone-300 text-lg leading-relaxed">
+              <p className="text-stone-300 text-[1.02rem] leading-relaxed max-w-[33ch]">
                 Wo andere Produkte wie Startup-Folien aussehen, soll BISS sich wie ein
                 verlässlicher Begleiter am Wasser anfühlen: robust, hilfreich und fair.
               </p>
 
-              <div className="mt-8 rounded-2xl bg-biss-wood/18 border border-biss-sand/15 p-5">
-                <div className="inline-flex items-center gap-3 text-sm text-biss-sand">
+              <div className="mt-8 rounded-2xl bg-biss-wood/18 border border-biss-sand/15 p-4 md:p-5">
+                <div className="inline-flex items-center gap-3 text-sm leading-relaxed text-biss-sand">
                   <Shield className="w-4 h-4" />
                   <span>Faire Paywall: Kernfeatures bleiben immer kostenlos</span>
                 </div>
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 auto-rows-fr">
               {uspPoints.map((usp, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 p-5 rounded-2xl weathered-card transition-colors"
+                  className="flex items-start gap-4 p-5 md:p-6 rounded-2xl weathered-card transition-colors h-full min-h-[136px]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-biss-dark/55 border border-biss-border/80 flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-biss-dark/55 border border-biss-border/80 flex items-center justify-center shrink-0">
                     <usp.icon className="w-5 h-5 text-biss-accent" />
                   </div>
-                  <p className="text-stone-300 text-sm leading-relaxed pt-2">{usp.text}</p>
+                  <p className="text-stone-300 text-[0.95rem] leading-relaxed pt-1 max-w-[24ch]">{usp.text}</p>
                 </div>
               ))}
             </div>
